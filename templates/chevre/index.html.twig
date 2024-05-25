@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chevre index{% endblock %}
+
+{% block body %}
+    <h1>Chevre index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>MatriculeChevre</th>
+                <th>AncienMatricule</th>
+                <th>SexeChevre</th>
+                <th>RaceChevre</th>
+                <th>DateArrivee</th>
+                <th>DateNaissance</th>
+                <th>Commentaire</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for chevre in chevres %}
+            <tr>
+                <td>{{ chevre.matriculeChevre }}</td>
+                <td>{{ chevre.ancienMatricule }}</td>
+                <td>{{ chevre.sexeChevre }}</td>
+                <td>{{ chevre.raceChevre }}</td>
+                <td>{{ chevre.dateArrivee ? chevre.dateArrivee|date('d/m/Y') : '' }}</td>
+                <td>{{ chevre.dateNaissance ? chevre.dateNaissance|date('d/m/Y') : '' }}</td>
+                <td>{{ chevre.commentaire }}</td>
+                <td>
+                    <a href="{{ path('app_chevre_show', {'id': chevre.id}) }}">show</a>
+                    <a href="{{ path('app_chevre_edit', {'id': chevre.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_chevre_new') }}">Create new</a>
+{% endblock %}

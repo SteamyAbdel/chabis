@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chevre{% endblock %}
+
+{% block body %}
+    <h1>Chevre</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ chevre.id }}</td>
+            </tr>
+            <tr>
+                <th>MatriculeChevre</th>
+                <td>{{ chevre.matriculeChevre }}</td>
+            </tr>
+            <tr>
+                <th>AncienMatricule</th>
+                <td>{{ chevre.ancienMatricule }}</td>
+            </tr>
+            <tr>
+                <th>SexeChevre</th>
+                <td>{{ chevre.sexeChevre }}</td>
+            </tr>
+            <tr>
+                <th>RaceChevre</th>
+                <td>{{ chevre.raceChevre }}</td>
+            </tr>
+            <tr>
+                <th>DateArrivee</th>
+                <td>{{ chevre.dateArrivee ? chevre.dateArrivee|date('d/m/Y') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateNaissance</th>
+                <td>{{ chevre.dateNaissance ? chevre.dateNaissance|date('d/m/Y') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Commentaire</th>
+                <td>{{ chevre.commentaire }}</td>
+            </tr>
+            <tr>
+                <th>Groupe Traitements</th>
+                <td>
+                    {% for groupeTraitements in chevre.groupetraitements %}
+                        {{ groupeTraitements.Traitement }}
+                    {% endfor %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_chevre_index') }}">back to list</a>
+
+    <a href="{{ path('app_chevre_edit', {'id': chevre.id}) }}">edit</a>
+
+    {{ include('chevre/_delete_form.html.twig') }}
+{% endblock %}

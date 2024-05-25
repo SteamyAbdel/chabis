@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}GroupeTraitement{% endblock %}
+
+{% block body %}
+    <h1>GroupeTraitement</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ groupe_traitement.id }}</td>
+            </tr>
+            <tr>
+                <th>NumGroupe</th>
+                <td>{{ groupe_traitement.numGroupe }}</td>
+            </tr>
+            <tr>
+                <th>Traitement</th>
+                <td>
+                    {{ groupe_traitement.Traitement }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_groupe_traitement_index') }}">back to list</a>
+
+    <a href="{{ path('app_groupe_traitement_edit', {'id': groupe_traitement.id}) }}">edit</a>
+
+    {{ include('groupe_traitement/_delete_form.html.twig') }}
+{% endblock %}

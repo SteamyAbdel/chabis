@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Chevre{% endblock %}
+
+{% block body %}
+    <h1>Create new Chevre</h1>
+
+    {{ include('chevre/_form.html.twig') }}
+
+    <a href="{{ path('app_chevre_index') }}">back to list</a>
+{% endblock %}

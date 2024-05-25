@@ -1,0 +1,367 @@
+:root {
+    --font : Poppins;
+    --background : #313131;
+    --lightBlue : #313131;
+    --darkBackground: #1f1f1f;
+    --primary: #d8a631;
+    --primaryHover: #faf3a0;
+    --grey: rgb(171, 182, 194);
+    --lightGrey: rgb(194, 196, 196);
+    --white: rgb(235, 235, 235);
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background: var(--darkBackground);
+    color: var(--grey);
+    font-family: var(--font);
+}
+a {
+    text-decoration: none;
+    color: var(--grey);
+}
+a * {
+    color: var(--grey);
+}
+header {
+    background: var(--background);
+    padding: 17px;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 2;
+}
+header .main-menu {
+    color: var(--white);
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+}
+header .main-menu .imageLogo {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right : 0px
+}
+.logoMenu {
+    width: 30%;
+    margin: 5vw auto 5vw auto;
+}
+.menu-item:hover {
+    color: var(--primaryHover);
+    cursor: pointer;
+}
+footer {
+    position: fixed;
+    bottom: 0px;
+    background-size: 120%;
+    padding: 10px;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+#footerBackground {
+    background: url("../img/Texture/goldTexture.jpg") no-repeat center center;
+    background-size: cover;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100%;
+    z-index: -1;
+    filter: brightness(70%);
+    transition: all 0.08s ease;
+}
+footer:hover #footerBackground {
+    filter: brightness(55%);
+}
+footer .footerBloc {
+    display: flex;
+    flex-direction: column;
+    font-size: 10px;
+}
+
+footer .footerBloc p {
+    color: var(--white);
+}
+.titrePage {
+    text-align: center;
+    padding: 15px;
+}
+.pageWrapper {
+    width: 85%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+.bareRechercheContainer {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    position: relative;
+    max-width: 500px;
+}
+.bareRechercheContainer .iconClear {
+    position: absolute;
+    right: 0px;
+    top : 50%;
+    transform: translateY(-50%);
+    padding: 10px;
+}
+.bareRechercheContainer .iconClear:hover {
+    transform: translateY(-52%);
+    cursor: pointer;
+    color: var(--primaryHover);
+}
+.bareRecherche {
+    border: var(--lightGrey) 2px solid;
+    outline: none;
+    background: var(--background);
+    color: var(--lightGrey);
+    font-size: 20px;
+    padding: 5px;
+    margin: auto;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 500px;
+}
+.bareRecherche:hover {
+    background: var(--darkBackground);
+}
+.bareRecherche:focus {
+    border: var(--primary) 2px solid;
+}
+.itemRecherche {
+    width: 33%;
+    max-width: 350px;
+    min-width: 130px;
+    padding-top: 8vw;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.1s ease;
+}
+.itemName {
+    background-color: var(--lightBlue);
+    color: var(--lightGrey);
+    padding: 5px;
+    border-radius: 0px 0px 4px 4px;
+    text-align: center;
+    font-weight: 650;
+}
+.itemRecherche:hover .itemName {
+    color: var(--white);
+}
+
+.itemRecherche:hover {
+    transform: translateY(-2px);
+    -webkit-box-shadow: 4px 9px 9px 2px rgba(0,0,0,0.16);
+    box-shadow: 4px 9px 9px 2px rgba(0,0,0,0.16);
+}
+.checkBox {
+    accent-color: gold;
+}
+#Menu {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-height: 100%;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    background : var(--background);
+    border-right: 3px solid var(--darkBackground);
+    border-radius: 0 4px 4px 0;
+    z-index: 2;
+    padding: 17px;
+    transition: all 0.1s ease-in-out;
+}
+.menuOn {
+    opacity: 1;
+    width: 40%;
+    visibility: visible;
+}
+.menuOff {
+    width: 20%;
+    opacity: 0;
+    visibility: hidden;
+}
+#Menu .Menu-item {
+    text-align: center;
+    font-size: 1.4rem;
+    text-decoration: none;
+    color: var(--lightGrey);
+    border-bottom: 3px solid transparent;
+    padding: 15px;
+    transition: all 0.15s ease;
+}
+#Menu .Menu-item:hover {
+    color: var(--white);
+    border-image: url("../img/Texture/goldTexture.jpg") 10 10 10 10;
+}
+
+.boutonAction {
+    background: var(--lightBlue);
+    width: 60px;
+    height: 60px;
+    padding: 5px;
+    border-radius: 50%;
+    position: relative;
+}
+.boutonAction i {
+    color: var(--grey);
+    font-size: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.boutonAction:hover i {
+    color: var(--primary);
+}
+.listeBouton {
+    width: max-content;
+    position: fixed;
+    top: 8vh;
+    left: 2.5vw;
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
+}
+.clickable {
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+.clickable:hover {
+    transform: translateY(-1px);
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.25);
+    color: white;
+}
+.listeRecherche {
+    margin: 15px auto 80px auto;
+    width: max-content;
+    max-width: 80vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1vw;
+}
+.item-container {
+    display: flex;
+    background: var(--lightBlue);
+    padding: 10px;
+    border-radius: 6px;
+    gap: 1.5vw;
+    position: relative;
+    width: 30vw;
+    max-width: 40vw;
+    height: 12vw;
+}
+.item-container .item-image {
+    border-radius: 4px;
+}
+.info-container .info-nom {
+    color: white;
+    font-size: 1.1vw;
+    font-weight: 620;
+}
+.info-container .info-nombre {
+    font-size: 0.8rem;
+    font-style: italic;
+}
+.item-container .item-redirect{
+    color: var(--grey);
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+@media screen and (max-width: 600px) {
+    .menuOn {
+        min-width: 100vw;
+    }
+    .item-container {
+        width: 45%;
+    }
+    .item-container .info-commentaire, .info-nombre {
+        display: none;
+    }
+    .item-container .item-redirect i {
+        font-size: 1rem;
+    }
+    .item-container .info-nom {
+        font-size: 0.65rem;
+    }
+}
+.information-container {
+    width: 70vw;
+    background: var(--background);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 15px;
+    gap: 0.75em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem;
+    border-radius: 6px;
+    align-items: center;
+    justify-content: space-between;
+}
+.information-texte-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.information-container .information-image {
+    width: 45%;
+    min-width: 200px;
+    margin: auto;
+    border-radius: 6px;
+}
+.information-container .information-bloc {
+    width: 100%;
+    background: var(--darkBackground);
+    padding: 10px;
+    border-radius: 6px;
+}
+.information-texte-container {
+    width: 50%;
+}
+
+nav {
+    background-color: #333; /* Couleur de fond de la barre de navigation */
+    padding: 10px 20px; /* Espacement intérieur */
+}
+
+nav ul {
+    list-style-type: none; /* Supprimer les puces de liste */
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline; /* Affichage en ligne des éléments de la liste */
+    margin-right: 20px; /* Espacement entre les éléments */
+}
+
+nav ul li a {
+    color: #fff; /* Couleur du texte */
+    text-decoration: none; /* Supprimer le soulignement des liens */
+    padding: 10px; /* Espacement intérieur des liens */
+    transition: color 0.3s ease; /* Transition de couleur fluide */
+}
+
+nav ul li a:hover {
+    color: #ffd700; /* Couleur du texte au survol */
+}

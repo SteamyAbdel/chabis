@@ -1,0 +1,71 @@
+{# templates/traitement/recherche.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Recherche de traitement{% endblock %}
+
+{% block body %}
+    <h1>Recherche de traitement</h1>
+
+    <form method="get" action="{{ path('recherche_traitement') }}">
+        <div>
+            <label for="matricule">Matricule Chèvre :</label>
+            <input type="text" id="matricule" name="matricule" value="{{ matricule ?? '' }}">
+        </div>
+        <div>
+            <label for="nomCheptel">Nom de Cheptel :</label>
+            <input type="text" id="nomCheptel" name="nomCheptel" value="{{ nomCheptel ?? '' }}">
+        </div>
+        <button type="submit">Rechercher</button>
+    </form>
+
+    {% if traitements %}
+        <h2>Résultats pour
+            {% if matricule %}
+                matricule: {{ matricule }}
+            {% elseif nomCheptel %}
+                nom de cheptel: {{ nomCheptel }}
+            {% endif %}
+        </h2>
+
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom du Traitement</th>
+                <th>Date de Début</th>
+                <th>Date de Fin</th>
+                <th>Raison du Traitement</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% if matricule %}
+            {% for traitement in traitements %}
+                <tr>
+                    <td>{{ traitement.Traitement.id }}</td>
+                    <td>{{ traitement.Traitement.nomTraitement }}</td>
+                    <td>{{ traitement.Traitement.debutTraitement|date('d/m/Y') }}</td>
+                    <td>{{ traitement.Traitement.finTraitement|date('d/m/Y') }}</td>
+                    <td>{{ traitement.Traitement.raisonTraitement }}</td>
+                </tr>
+            {% endfor %}
+            {% elseif nomCheptel %}
+                {% for traitement in traitements %}
+                        {% for chevres in traitement.chevres %}
+                            {% for groupeTraitements in chevres.groupetraitements %}
+                                <tr>
+                                <td>{{ groupeTraitements.Traitement.id }}</td>
+                                    <td>{{ groupeTraitements.Traitement.nomTraitement }}</td>
+                                    <td>{{ groupeTraitements.Traitement.debutTraitement|date('d/m/Y') }}</td>
+                                    <td>{{ groupeTraitements.Traitement.finTraitement|date('d/m/Y') }}</td>
+                                    <td>{{ groupeTraitements.Traitement.raisonTraitement }}</td>
+                                </tr>
+                                {% endfor %}
+                            {% endfor %}
+                {% endfor %}
+                {% endif %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Aucun traitement trouvé pour le matricule ou nom de cheptel spécifié.</p>
+    {% endif %}
+{% endblock %}

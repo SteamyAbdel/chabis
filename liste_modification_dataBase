@@ -1,0 +1,16 @@
+
+
+chèvre :    création id_groupe_traitement vers traitement
+            suprésion id
+            passage de id_chevre en clée primaire
+            
+remplacer groupe_traitement_traitement par groupe_traitement
+            enlever la clée primaire de traitemebt_id
+
+supression de chevre_groupe_traitement
+
+verérinaire :   suprimer id
+                passer id_vererinaire en clée primaire
+                
+verérinaire :   suprimer id
+                passer id_traitement en clée primaire

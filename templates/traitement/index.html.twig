@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Traitement index{% endblock %}
+
+{% block body %}
+    <h1>Traitement index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>NomTraitement</th>
+                <th>NumTraitement</th>
+                <th>DebutTraitement</th>
+                <th>FinTraitement</th>
+                <th>RaisonTraitement</th>
+                <th>DateAchatTraitement</th>
+                <th>DureeQuantiteeEnJour</th>
+                <th>Commentaire</th>
+                <th>DateVisiteVeterinaire</th>
+                <th>RaisonVisiteVeterinaire</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for traitement in traitements %}
+            <tr>
+                <td>{{ traitement.nomTraitement }}</td>
+                <td>{{ traitement.numTraitement }}</td>
+                <td>{{ traitement.debutTraitement ? traitement.debutTraitement|date('d/m/Y') : '' }}</td>
+                <td>{{ traitement.finTraitement ? traitement.finTraitement|date('d/m/Y') : '' }}</td>
+                <td>{{ traitement.raisonTraitement }}</td>
+                <td>{{ traitement.dateAchatTraitement ? traitement.dateAchatTraitement|date('d/m/Y') : '' }}</td>
+                <td>{{ traitement.dureeQuantiteeEnJour }}</td>
+                <td>{{ traitement.commentaire }}</td>
+                <td>{{ traitement.dateVisiteVeterinaire ? traitement.dateVisiteVeterinaire|date('d/m/Y') : '' }}</td>
+                <td>{{ traitement.raisonVisiteVeterinaire }}</td>
+                <td>
+                    <a href="{{ path('app_traitement_show', {'id': traitement.id}) }}">show</a>
+                    <a href="{{ path('app_traitement_edit', {'id': traitement.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_traitement_new') }}">Create new</a>
+{% endblock %}

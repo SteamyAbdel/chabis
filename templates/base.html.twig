@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link href="/css/main.css" rel="stylesheet" type="text/css">
+        <link href="/css/form.css" rel="stylesheet" type="text/css">
+        <link href="/css/lesListes.css" rel="stylesheet" type="text/css">
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        <link rel="route" type="text/css" href="cssmenu.html.twig" />
+        {% block stylesheets %}
+
+
+
+
+            {%  block cssmenu %}
+
+            {% endblock %}
+
+        {% endblock %}
+
+        {% block javascripts %}
+        {% endblock %}
+    </head>
+    <body>
+
+    <style>
+        nav {
+            background-color: #333; /* Couleur de fond de la barre de navigation */
+            padding: 10px 20px; /* Espacement intérieur */
+        }
+
+        nav ul {
+            list-style-type: none; /* Supprimer les puces de liste */
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline; /* Affichage en ligne des éléments de la liste */
+            margin-right: 20px; /* Espacement entre les éléments */
+        }
+
+        nav ul li a {
+            color: #fff; /* Couleur du texte */
+            text-decoration: none; /* Supprimer le soulignement des liens */
+            padding: 10px; /* Espacement intérieur des liens */
+            transition: color 0.3s ease; /* Transition de couleur fluide */
+        }
+
+        nav ul li a:hover {
+            color: #ffd700; /* Couleur du texte au survol */
+        }
+        /* Style général du tableau */
+        table {
+            width: 100%; /* Prendre toute la largeur disponible */
+            border-collapse: collapse; /* Supprimer l'espace entre les bordures des cellules */
+            margin: 20px auto; /* Ajouter une marge autour du tableau */
+        }
+
+        /* Style des lignes du tableau */
+        tr {
+            background-color: #f8f8f8; /* Couleur de fond gris clair */
+            border-bottom: 1px solid #ddd; /* Bordure en bas de chaque ligne */
+        }
+
+        /* Style des en-têtes de tableau */
+        th {
+            background-color: #333; /* Couleur de fond bleu foncé */
+            color: #fff; /* Couleur du texte blanc */
+            font-weight: bold; /* Gras */
+            padding: 10px; /* Ajouter du padding autour du texte */
+            text-align: center; /* Aligner le texte au centre */
+        }
+
+        /* Style des cellules du tableau */
+        td {
+            padding: 10px; /* Ajouter du padding autour du texte */
+            text-align: left; /* Aligner le texte à gauche */
+        }
+
+        /* Style des lignes paires (en alternance) */
+        tr:nth-child(even) {
+            background-color: #fff; /* Couleur de fond blanc */
+        }
+
+        h1 {
+            text-align: center; /* Centrer le texte horizontalement */
+            margin: 40px 0; /* Ajouter 40px d'espacement en haut et en bas */
+        }
+
+
+
+
+
+
+
+
+
+
+
+    </style>
+
+
+    <nav>
+        <!-- Your navbar content here -->
+        <ul>
+            <li><a href="{{ path('app_accueil') }}">Accueil</a></li>
+            <li><a href="{{ path('app_chevre_index') }}">Chevre</a></li>
+            <li><a href=" {{ path('app_traitement_index') }}">Traitement</a></li>
+            <li><a href=" {{ path('app_groupe_traitement_index') }}">Groupe_Traitement</a></li>
+            <li><a href="{{ path('app_veterinaire_index') }}">Veterinaire</a></li>
+            <li><a href="{{ path('app_cheptel_index') }}">Cheptel</a></li>
+            <li><a href="{{ path('carnet_sanitaire') }}" > Carnet sanitaire </a></li>
+            <li><a href="{{ path('app_login') }}">Connexion</a></li>
+            <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
+            <li><a href="{{ path('app_register') }}"> Registration</a> </li>
+            <li><a href="{{ path('app_historique_index') }}"> Historique</a></li>
+        </ul>
+    </nav>
+
+
+        {% block body %}
+        {% endblock %}
+    </body>
+</html>

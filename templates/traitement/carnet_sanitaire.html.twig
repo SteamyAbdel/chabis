@@ -1,0 +1,50 @@
+{# templates/traitement/carnet_sanitaire.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Carnet Sanitaire{% endblock %}
+
+{% block body %}
+    <h1>Carnet Sanitaire</h1>
+
+    <form method="get" action="{{ path('carnet_sanitaire') }}">
+        <label for="dateDebut">Date de début :</label>
+        <input type="date" id="dateDebut" name="dateDebut" value="{{ dateDebut ?? '' }}" required>
+
+        <label for="dateFin">Date de fin :</label>
+        <input type="date" id="dateFin" name="dateFin" value="{{ dateFin ?? '' }}" required>
+
+        <button type="submit">Filtrer</button>
+    </form>
+
+    {% if traitements %}
+        <h2>Résultats pour la période du {{ dateDebut|date('d/m/Y') }} au {{ dateFin|date('d/m/Y') }}</h2>
+
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom du Traitement</th>
+                <th>Date de Début</th>
+                <th>Date de Fin</th>
+                <th>Raison du Traitement</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for traitement in traitements %}
+                <tr>
+                    <td>{{ traitement.id }}</td>
+                    <td>{{ traitement.nomTraitement }}</td>
+                    <td>{{ traitement.debutTraitement|date('d/m/Y') }}</td>
+                    <td>{{ traitement.finTraitement|date('d/m/Y') }}</td>
+                    <td>{{ traitement.raisonTraitement }}</td>
+
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Aucun traitement trouvé pour la période sélectionnée.</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,74 @@
+form {
+    background: var(--background);
+    width: max-content;
+    max-width: 50vw;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    gap: 0.75em;
+    margin: auto auto 8vh auto;
+    font-size: 1.25rem;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+form button {
+    background: var(--darkBackground);
+    color: var(--primary);
+    font-family: Poppins;
+    border : none;
+    border-radius: 0.25vw;
+    transition: all 0.1s ease;
+    cursor: pointer;
+}
+form button:hover {
+    transform: translateY(-2px);
+}
+form div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.2vw;
+}
+form label {
+    color: var(--white);
+    font-weight: bolder;
+}
+form input {
+    font-size: 1.1rem;
+    padding: 0.5vw;
+    background: var(--darkBackground);
+    border: none;
+    border-radius: 0.35vw;
+    color: var(--grey);
+}
+form input:focus {
+    outline: 2px solid var(--primary);
+}
+form select {
+    font-size: 1.1rem;
+    padding: 0.5vw;
+    background: var(--darkBackground);
+    border: none;
+    border-radius: 0.35vw;
+    color: var(--grey);
+    margin: 0 5px 0 5px;
+}
+form select:focus {
+    outline: 2px solid var(--primary);
+}
+.form-container .btn {
+    width: max-content;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px auto auto auto;
+    background: var(--darkBackground);
+    border: none;
+    color: var(--grey);
+    text-transform: uppercase;
+    font-family: Poppins;
+}
+.form-container .btn:hover {
+    color: var(--white);
+}

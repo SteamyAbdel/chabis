@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Cheptel{% endblock %}
+
+{% block body %}
+    <h1>Create new Cheptel</h1>
+
+    {{ include('cheptel/_form.html.twig') }}
+
+    <a href="{{ path('app_cheptel_index') }}">back to list</a>
+{% endblock %}

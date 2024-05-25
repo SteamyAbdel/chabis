@@ -1,0 +1,29 @@
+.listeContainer {
+    width: 80vw;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.5vw;
+}
+.listeContainer .liste-item {
+    width: 20vw;
+    background: var(--background);
+    box-shadow: var(--shadow) 2px 2px 8px;
+    padding: 1vw;
+    border-radius: 1vw;
+}
+.listeContainer .liste-item p span {
+    font-weight: bolder;
+    color: var(--white);
+}
+.recherche {
+    font-size: 1.1rem;
+    padding: 0.5vw;
+    background: var(--background);
+    border: none;
+    border-radius: 0.35vw;
+    color: var(--grey);
+    width: 40vw;
+    margin: 1vw auto;
+}
